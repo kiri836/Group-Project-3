@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include "Trie.h"
 
 std::vector<std::string> linearSearch(std::vector<std::vector<std::string>> dictionary, std::string word){
     std::vector<std::string> definitions;

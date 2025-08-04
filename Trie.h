@@ -26,6 +26,8 @@ public:
 
   void insert(const string& word, const vector<string>& definitions);
   vector<string> search(string& word);
+  vector<string> prefix(string& prefix);
+  void pushWords(TrieNode* node, string word, vector<string>& matches);
   void destruct(TrieNode* root);
 
   ~Trie();

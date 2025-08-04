@@ -10,8 +10,8 @@
 
 std::vector<std::string> linearSearch(std::vector<std::vector<std::string>> dictionary, std::string word){
     std::vector<std::string> definitions;
-    for (std::vector<std::string> entry : dictionary){
-        if (entry[0] == word){
+    for (std::vector<std::string> entry : dictionary) {
+        if (entry[0] == word) {
             definitions.push_back(entry[1]);
         }
     }
@@ -35,7 +35,7 @@ std::vector<std::vector<std::string>> loadDictionary(std::vector<std::vector<std
     std::vector<std::string> temp;
     std::string field;
 
-    while (std::getline(csvFile, line)){
+    while (std::getline(csvFile, line)) {
         std::stringstream s(line);
         std::string word;
         std::vector<std::string> defs;
@@ -76,8 +76,14 @@ int main() {
     dictionary = loadDictionary(dictionary, trieDictionary);
 
     while (true) {
-        std::cout << "\nEnter a word to look up (or type 'quit' to exit): ";
+        std::cout << "\nEnter a word to look up (or type '1' to exit): ";
         std::getline(std::cin, wordToLookup);
+
+        // Check if the user wants to quit.
+        if (wordToLookup == "1") {
+            std::cout << "Goodbye!" << std::endl;
+            break; // Exit the loop.
+        }
 
         // Convert to matching case
         for (char &c : wordToLookup) {
@@ -87,11 +93,6 @@ int main() {
         // Safeguards against empty string if user inputs enter key
         if (!wordToLookup.empty())
             wordToLookup[0] = std::toupper(wordToLookup[0]);
-
-        // Check if the user wants to quit.
-        if (wordToLookup == "Quit") {
-            break; // Exit the loop.
-        }
 
         // Use a linear search to find the word
         auto startLinear = chrono::high_resolution_clock::now();

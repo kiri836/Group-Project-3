@@ -1,9 +1,14 @@
+#include <cctype>
 #include "Trie.h"
 using namespace std;
 
-void Trie::insert(const string& word, const string& definition) {
+void Trie::insert(const string& word, const vector<string>& definitions) {
   TrieNode* letter = root;
-  for (const char c : word) {
+  for (char c : word) {
+    c = tolower(c);
+    if (c < 'a' || c > 'z')
+      continue;
+
     int index = c - 'a';
     if (!letter->alphabet[index]) {
       letter->alphabet[index] = new TrieNode();
@@ -13,24 +18,41 @@ void Trie::insert(const string& word, const string& definition) {
   }
 
   letter->endOfWord = true;
-  letter->definition = definition;
+  letter->definitions = definitions;
 }
 
-string Trie::search(const string& word) {
+vector<string> Trie::search(string& word) {
   TrieNode* letter = root;
-  for (const char c : word) {
+  for (char c : word) {
+    c = tolower(c);
     int index = c - 'a';
     if (!letter->alphabet[index]) {
       cout << "Word not found." << endl;
-      return "";
+      return {};
     }
 
     letter = letter->alphabet[index];
   }
 
   if (letter->endOfWord) {
-    return letter->definition;
+    return letter->definitions;
   }
 
-  return "Word not found.\n";
+  cout << "Word not found." << endl;
+  return {};
+}
+
+void Trie::destruct(TrieNode* root) {
+  if (root == nullptr)
+    return;
+
+  for (int i = 0; i < 26; i++)
+    if (root->alphabet[i])
+      destruct(root->alphabet[i]);
+
+  delete root;
+}
+
+Trie::~Trie() {
+  destruct(root);
 }

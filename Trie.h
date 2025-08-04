@@ -4,12 +4,11 @@ using namespace std;
 
 struct TrieNode {
   bool endOfWord;
-  string definition;
+  vector<string> definitions;
   TrieNode* alphabet[26];
 
   TrieNode() {
     endOfWord = false;
-    definition = "";
     for (auto& letter : alphabet)
       letter = nullptr;
   }
@@ -24,6 +23,9 @@ public:
     root = new TrieNode();
   }
 
-  void insert(const string& word, const string& definition);
-  string search(const string& word);
+  void insert(const string& word, const vector<string>& definitions);
+  vector<string> search(string& word);
+  void destruct(TrieNode* root);
+
+  ~Trie();
 };

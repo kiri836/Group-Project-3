@@ -5,7 +5,7 @@ using namespace std;
 struct TrieNode {
   bool endOfWord;
   string definition;
-  TrieNode* alphabet[26]*;
+  TrieNode* alphabet[26];
 
   TrieNode() {
     endOfWord = false;

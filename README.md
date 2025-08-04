@@ -16,7 +16,7 @@ Make sure the file is named `OPTED-Dictionary.csv` and placed in the project dir
 ## How to Use
 
 - Run the program
-- Select an option when prompted(0, 1, or 2)
+- Select an option when prompted (0, 1, or 2)
 - 0 to exit
 - 1 to view the definition along with search times for both algorithms
 - 2 to view all words in the dictionary matching entered prefix

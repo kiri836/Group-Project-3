@@ -9,7 +9,7 @@
 #include "Trie.h"
 #include "Hashtable.h"
 
-std::vector<std::string> linearSearch(std::vector<std::vector<std::string>> dictionary, std::string word){
+std::vector<std::string> linearSearch(std::vector<std::vector<std::string>>& dictionary, std::string& word){
     std::vector<std::string> empty;
     std::string temp;
     for (std::vector<std::string> entry : dictionary){
@@ -123,8 +123,8 @@ int main() {
             std::vector<std::string> hashTableDefinitions = hashTable.search(wordToLookup);
             auto endTable = chrono::high_resolution_clock::now();
 
-            for (int i = 0; i < definitions.size(); i++) {
-                std::cout << i + 1 << ". " << definitions[i] << std::endl;
+            for (int i = 1; i < definitions.size(); i++) {
+                std::cout << i << ". " << definitions[i] << std::endl;
             }
 
             // Print out search times for each algorithm

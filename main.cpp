@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -10,12 +10,9 @@
 
 std::vector<std::string> linearSearch(std::vector<std::vector<std::string>> dictionary, std::string word){
     std::vector<std::string> definitions;
-    for (std::vector<std::string> entry : dictionary){
-        if (entry[0] == word){
+    for (std::vector<std::string> entry : dictionary)
+        if (entry[0] == word)
             definitions.push_back(entry[1]);
-            definitions.back().erase(std::remove(definitions.back().begin(), definitions.back().end(), '"'), definitions.back().end());
-        }
-    }
 
     return definitions;
 }
@@ -39,7 +36,7 @@ std::vector<std::vector<std::string>> loadDictionary(std::vector<std::vector<std
     while (std::getline(csvFile, line)){
         std::stringstream s(line);
         std::string word;
-        std::vector<string> defs;
+        std::vector<std::string> defs;
 
         for (int i = 0; i < 4; i++) {
             std::getline(s, field, ',');

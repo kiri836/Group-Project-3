@@ -18,3 +18,4 @@ Make sure the file is named `OPTED-Dictionary.csv` and placed in the project dir
 - Run the program
 - Enter a word when prompted
 - View the definition along with search times for both algorithms
+- Enter '1' to quit or enter a new word

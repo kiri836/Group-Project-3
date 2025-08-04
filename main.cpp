@@ -10,10 +10,12 @@
 
 std::vector<std::string> linearSearch(std::vector<std::vector<std::string>> dictionary, std::string word){
     std::vector<std::string> definitions;
-    for (std::vector<std::string> entry : dictionary)
-        if (entry[0] == word)
+    for (std::vector<std::string> entry : dictionary){
+        if (entry[0] == word){
             definitions.push_back(entry[1]);
-
+        }
+    }
+    
     return definitions;
 }
 
@@ -105,8 +107,8 @@ int main() {
 
         // Print out search times for each algorithm
         std::cout << std::endl;
-        std::cout << "Linear search time: " << duration_cast<chrono::microseconds>(endLinear - startLinear).count() << " microseconds" << std::endl;
-        std::cout << "Trie search time: " << duration_cast<chrono::microseconds>(endTrie - startTrie).count() << " microseconds" << std::endl;
+        std::cout << "Linear search time: " << chrono::duration_cast<chrono::microseconds>(endLinear - startLinear).count() << " microseconds" << std::endl;
+        std::cout << "Trie search time: " << chrono::duration_cast<chrono::microseconds>(endTrie - startTrie).count() << " microseconds" << std::endl;
     }
 
     return 0;

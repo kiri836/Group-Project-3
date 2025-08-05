@@ -7,4 +7,6 @@ add_executable(Group-Project-3
         main.cpp
         Trie.cpp
         Trie.h
+        Hashtable.cpp
+        Hashtable.h
 )

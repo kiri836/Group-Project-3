@@ -25,6 +25,8 @@ vector<string> Trie::search(string& word) {
   TrieNode* letter = root;
   for (char c : word) {
     c = tolower(c);
+    if (c < 'a' || c > 'z')
+      continue;
     int index = c - 'a';
     if (!letter->alphabet[index]) {
       cout << "Word not found." << endl;

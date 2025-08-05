@@ -4,7 +4,7 @@ Group 59
 
 ## Overview
 
-This project allows users to input a word and receive its dictionary definition using two different search methods: **linear search** and **trie-based search**. The program compares the execution time of both methods and displays the results to the user. The program also allows the user to see all words matching an inputted prefix. 
+This project allows users to input a word and receive its dictionary definition using two different search methods: **hash table** and **trie-based search**. The program compares the execution time of both methods and displays the results to the user. The program also allows the user to see all words matching an inputted prefix. 
 
 ## Dataset
 
